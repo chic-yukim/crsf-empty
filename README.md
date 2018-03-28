@@ -16,5 +16,5 @@ You should edit the name in `CMakeLists.txt`
 1. Change `CRMODULE_ID` in `empty-project/CMakeLists.txt` file.
 2. Change contents in `empty-project/config.json`.
 3. Change `<id>` tag value in `empty-project/config/SystemConfiguration.xml` file.
-   - Without this, application prints error message.
+   - Without this, the application will prints error message.
 4. Change tag name in `empty-project/config/DynamicModuleConfiguration.xml` file if the tag exists.
