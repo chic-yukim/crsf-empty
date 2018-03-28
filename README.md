@@ -10,10 +10,10 @@
 
 ## Customizing
 ### Directory Name
-You should edit the name in `CMakeLists.txt`
+You should edit a value of `add_subdirectory` in `CMakeLists.txt`
 
 ### Project Name (Module ID)
-1. Change `CRMODULE_ID` in `empty-project/CMakeLists.txt` file.
+1. Change a value of `CRMODULE_ID` in `empty-project/CMakeLists.txt` file.
 2. Change contents in `empty-project/config.json`.
 3. Change `<id>` tag value in `empty-project/config/SystemConfiguration.xml` file.
    - Without this, the application will print error message.
