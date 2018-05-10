@@ -53,7 +53,7 @@ target_include_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE $<$<NOT:$<BOOL:Boost_USE_STATIC_LIBS>>:Boost::dynamic_linking>
-    CRSeedLib spdlog::spdlog
+    CRSeedLib fmt::fmt-header-only spdlog::spdlog
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
