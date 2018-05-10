@@ -60,8 +60,6 @@ global_stage_order:
   - ColorCorrectionStage
 
   # Finishing stages, do not insert anything below
-  - DepthmapRenderStage
-  - VSTCompositeStage
   - UpscaleStage
   - FinalStage
   - UpdatePreviousPipesStage

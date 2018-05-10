@@ -22,7 +22,6 @@ enabled:
     # - fxaa
     # - volumetrics
     # - vxgi
-    - crsf
 
 # stereo plugins
 #enabled:
@@ -34,7 +33,6 @@ enabled:
 #    - sky_ao
 #    - openvr
 #    - env_probes
-#    - crsf
 
 
 overrides:
