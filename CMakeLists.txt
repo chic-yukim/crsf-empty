@@ -1,7 +1,7 @@
-# Author: Younguk Kim (bluekyu)
-
-cmake_minimum_required(VERSION 3.9)
-project(CRSF-Projects)
+cmake_minimum_required(VERSION 3.10)
+project(CRSF-Projects
+    LANGUAGES NONE
+)
 
 # === configure ====================================================================================
 set(CRSF_SDK_DIR "${CMAKE_CURRENT_LIST_DIR}/crsf")

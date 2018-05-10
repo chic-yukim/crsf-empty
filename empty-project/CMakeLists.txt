@@ -1,10 +1,11 @@
-# Author: Younguk Kim (bluekyu)
-# Date  : 2017-05-12
-
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.10)
 
 set(CRMODULE_ID "empty-project")
-project(crmodule_${CRMODULE_ID})
+project(crmodule_${CRMODULE_ID}
+    VERSION 0.1.0
+    DESCRIPTION "CRSF Empty Project"
+    LANGUAGES CXX
+)
 
 # === configure ====================================================================================
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)    # Project Grouping
@@ -18,11 +19,6 @@ list(APPEND CMAKE_MODULE_PATH "${CRSF_SDK_DIR}/cmake")
 
 set(CRMODULE_INSTALL_DIR "${CRMODULE_ID}")
 
-set(PROJECT_VERSION_MAJOR "0")
-set(PROJECT_VERSION_MINOR "1")
-set(PROJECT_VERSION_PATCH "0")
-set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
-
 # === project specific packages ===
 include(FindPackages)
 # ==================================================================================================
@@ -31,9 +27,17 @@ include(FindPackages)
 include("${PROJECT_SOURCE_DIR}/files.cmake")
 add_library(${PROJECT_NAME} MODULE ${module_sources} ${module_headers})
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_auto_type)
 if(MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE /MP /wd4251)
+    target_compile_options(${PROJECT_NAME} PRIVATE /MP /wd4251
+        $<$<VERSION_GREATER:${MSVC_VERSION},1800>:/utf-8>
+        $<$<VERSION_GREATER:${MSVC_VERSION},1900>:/permissive->
+
+        # note: windows.cmake in vcpkg
+        $<$<CONFIG:Release>:/Oi /Gy /Z7>
+    )
+
+    set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY LINK_FLAGS_RELWITHDEBINFO    " /INCREMENTAL:NO /OPT:REF /OPT:ICF ")
+    set_property(TARGET ${PROJECT_NAME} APPEND_STRING PROPERTY LINK_FLAGS_RELEASE           " /DEBUG /INCREMENTAL:NO /OPT:REF /OPT:ICF ")
 else()
     target_compile_options(${PROJECT_NAME} PRIVATE -Wall)
 endif()
