@@ -4,19 +4,20 @@
 CRSEEDLIB_MODULE_CREATOR(EmptyModule);
 
 // ************************************************************************************************
-EmptyModule::EmptyModule(void): crsf::TDynamicModuleInterface(CRMODULE_ID_STRING)
+EmptyModule::EmptyModule(): crsf::TDynamicModuleInterface(CRMODULE_ID_STRING)
 {
 }
 
-void EmptyModule::OnLoad(void)
+void EmptyModule::OnLoad()
 {
 }
 
-void EmptyModule::OnStart(void)
+void EmptyModule::OnStart()
 {
     world_ = std::make_unique<World>();
 }
 
-void EmptyModule::OnExit(void)
+void EmptyModule::OnExit()
 {
+    world_.reset();
 }

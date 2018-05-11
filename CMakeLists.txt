@@ -13,6 +13,9 @@ if(NOT EXISTS ${CRSF_SDK_DIR})
     )
 endif()
 
+# list modules
+add_subdirectory("empty-module")
+
 # list projects
 add_subdirectory("empty-project")
 # ==================================================================================================

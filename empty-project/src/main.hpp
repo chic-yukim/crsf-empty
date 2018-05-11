@@ -7,11 +7,11 @@ class World;
 class EmptyModule : public crsf::TDynamicModuleInterface
 {
 public:
-    EmptyModule(void);
+    EmptyModule();
 
-    void OnLoad(void) override;
-    void OnStart(void) override;
-    void OnExit(void) override;
+    void OnLoad() override;
+    void OnStart() override;
+    void OnExit() override;
 
 private:
     std::unique_ptr<World> world_;
