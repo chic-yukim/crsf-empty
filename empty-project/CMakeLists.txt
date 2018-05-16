@@ -30,7 +30,6 @@ add_library(${PROJECT_NAME} MODULE ${module_sources} ${module_headers})
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /MP /wd4251
         $<$<VERSION_GREATER:${MSVC_VERSION},1800>:/utf-8>
-        $<$<VERSION_GREATER:${MSVC_VERSION},1900>:/permissive->
 
         # note: windows.cmake in vcpkg
         $<$<CONFIG:Release>:/Oi /Gy /Z7>
