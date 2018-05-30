@@ -6,6 +6,7 @@
 3. Setup project using CMake
 4. Build and run the project
    - You should set the project using `Set as StartUp Project`.
+   - You may choose Project configuration as `RelWithDebInfo` or `Release`.
 
 
 ## Customizing
