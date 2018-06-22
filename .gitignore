@@ -2,3 +2,4 @@
 /_build
 /x64
 /crsf
+/vcpkg
