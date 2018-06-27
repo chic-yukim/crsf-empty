@@ -20,31 +20,31 @@
 
 ### Visual Studio 2013
 3. CMake 를 사용하여 아래와 같이 설정합니다.
-  1. Where is the source code: `PROJECT_DIR` 경로
-  2. Where to build the binaries: `PROJECT_DIR/build` 경로
-  3. Configure 버튼을 눌러서 CMake 프로젝트를 구성합니다.
-    - "Use default native compilers" 를 선택하고 Finish 하면 됩니다.
-  4. Generate 버튼을 눌러서 Visual Studio 프로젝트를 생성합니다.
+   1. Where is the source code: `PROJECT_DIR` 경로
+   2. Where to build the binaries: `PROJECT_DIR/build` 경로
+   3. Configure 버튼을 눌러서 CMake 프로젝트를 구성합니다.
+      - "Use default native compilers" 를 선택하고 Finish 하면 됩니다.
+   4. Generate 버튼을 눌러서 Visual Studio 프로젝트를 생성합니다.
 
 4. 빌드 및 프로젝트를 실행합니다.
-  - 프로젝트 Configuration 설정에서 RelWithDebInfo 나 Release 를 선택합니다.
-  - 특정 프로젝트를 시작(Start Debugging)하려면, 해당 프로젝트를 `Set as StartUp Project` 로 설정하면 됩니다.
+   - 프로젝트 Configuration 설정에서 RelWithDebInfo 나 Release 를 선택합니다.
+   - 특정 프로젝트를 시작(Start Debugging)하려면, 해당 프로젝트를 `Set as StartUp Project` 로 설정하면 됩니다.
 
 ### Visual Studio 2017
 3. `bootstrap.bat` 파일을 실행합니다. (**이 작업은 시스템 사양에 따라서 20분 이상 소요됩니다.**)
-  - 이 배치 파일은 [vcpkg](https://github.com/Microsoft/vcpkg) 프로젝트를 clone 합니다.
-  - 그런 다음 vcpkg 를 사용해서 외부 라이브러리들을 빌드 및 설치합니다.
+   - 이 배치 파일은 [vcpkg](https://github.com/Microsoft/vcpkg) 프로젝트를 clone 합니다.
+   - 그런 다음 vcpkg 를 사용해서 외부 라이브러리들을 빌드 및 설치합니다.
 
 4. CMake 를 사용하여 아래와 같이 설정합니다.
-  1. Where is the source code: `PROJECT_DIR` 경로
-  2. Where to build the binaries: `PROJECT_DIR/build` 경로
-  3. **Specify toolchain file for cross-compiling** 을 선택합니다.
-  4. `vcpkg/scripts/buildsystems/vcpkg.cmake` 에 있는 vcpkg toolchain 파일을 지정합니다.
-  5. Finish
+   1. Where is the source code: `PROJECT_DIR` 경로
+   2. Where to build the binaries: `PROJECT_DIR/build` 경로
+   3. **Specify toolchain file for cross-compiling** 을 선택합니다.
+   4. `vcpkg/scripts/buildsystems/vcpkg.cmake` 에 있는 vcpkg toolchain 파일을 지정합니다.
+   5. Finish
 
 5. 빌드 및 프로젝트를 실행합니다.
-  - 프로젝트 Configuration 설정에서 Debug, RelWithDebInfo 및 Release 를 선택합니다.
-  - 특정 프로젝트를 시작(Start Debugging)하려면, 해당 프로젝트를 `Set as StartUp Project` 로 설정하면 됩니다.
+   - 프로젝트 Configuration 설정에서 Debug, RelWithDebInfo 및 Release 를 선택합니다.
+   - 특정 프로젝트를 시작(Start Debugging)하려면, 해당 프로젝트를 `Set as StartUp Project` 로 설정하면 됩니다.
 
 
 
@@ -64,17 +64,17 @@ CMakeLists.txt 파일에서 `add_subdirectory("crsf/examples")` 주석을 해제
 1. `your-project/CMakeLists.txt` 파일에 있는 `CRMODULE_ID` 값을 수정합니다.
 2. `your-project/config.json` 파일의 내용을 수정합니다.
 3. `your-project/config/SystemConfiguration.xml` 파일에 있는 `<id>` 태그 값을 **모듈 ID** 로 수정합니다.
-  - 이를 하지 않으면, CRSF 어플리케이션에서 해당 모듈을 몾 찾았다는 에러 메시지가 나옵니다.
-  - 예시:
-  ```xml
-  <dynamic_modules>
-    <module>
-        ...
-    </module>
-    <application>
-        <id>your-project</id>
-    </application>
-  </dynamic_modules>
-  ```
+   - 이를 하지 않으면, CRSF 어플리케이션에서 해당 모듈을 몾 찾았다는 에러 메시지가 나옵니다.
+   - 예시:
+   ```xml
+   <dynamic_modules>
+     <module>
+         ...
+     </module>
+     <application>
+         <id>your-project</id>
+     </application>
+   </dynamic_modules>
+   ```
 
 4. `your-project/config/DynamicModuleConfiguration.xml` 파일에 모듈에 대한 태그가 존재한다면, 해당 태그도 변경합니다.
