@@ -12,8 +12,8 @@ endif()
 #add_subdirectory("crsf/examples")
 
 # list modules
-add_subdirectory("empty-module")
+add_subdirectory("empty_module")
 
 # list projects
-add_subdirectory("empty-project")
+add_subdirectory("empty_project")
 # ==================================================================================================

@@ -1,9 +1,9 @@
 set(header_include
-    "${PROJECT_SOURCE_DIR}/include/empty_module/empty_module.h"
+    "${PROJECT_SOURCE_DIR}/include/${CRMODULE_ID}/module.h"
 )
 
 # grouping
-source_group("empty_module" FILES ${header_include})
+source_group("${CRMODULE_ID}" FILES ${header_include})
 
 set(module_headers
     ${header_include}
@@ -11,7 +11,7 @@ set(module_headers
 
 
 set(source_src
-    "${PROJECT_SOURCE_DIR}/src/empty_module.cpp"
+    "${PROJECT_SOURCE_DIR}/src/module.cpp"
 )
 
 # grouping

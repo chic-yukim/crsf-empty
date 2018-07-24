@@ -1,12 +1,4 @@
-/**
- * Coexistence Reality Software Framework (CRSF)
- * Copyright (c) Center of Human-centered Interaction for Coexistence. All rights reserved.
- * See the LICENSE.md file for more details.
- */
-
-#include "empty_module/empty_module.h"
-
-#include <boost/dll/alias.hpp>
+#include "empty_module/module.h"
 
 #include <spdlog/spdlog.h>
 

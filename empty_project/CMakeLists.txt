@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(CRMODULE_ID "empty-project")
+set(CRMODULE_ID "empty_project")
 project(crmodule_${CRMODULE_ID}
     VERSION 0.1.0
     DESCRIPTION "CRSF Empty Project"

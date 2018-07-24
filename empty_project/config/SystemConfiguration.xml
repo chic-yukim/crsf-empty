@@ -8,7 +8,7 @@
 
     <dynamic_modules>
         <application>
-            <id>empty-project</id>
+            <id>empty_project</id>
         </application>
     </dynamic_modules>
 </system>
