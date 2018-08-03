@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(CRSF-Projects LANGUAGES NONE)
+project(CRSF-Projects LANGUAGES CXX)
 
 # === configure ====================================================================================
 set(CRSF_SDK_DIR "${CMAKE_CURRENT_LIST_DIR}/crsf")
