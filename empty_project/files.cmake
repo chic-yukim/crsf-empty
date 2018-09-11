@@ -12,8 +12,6 @@ set(module_headers
 set(source_src
     "${PROJECT_SOURCE_DIR}/src/main.cpp"
     "${PROJECT_SOURCE_DIR}/src/main.hpp"
-    "${PROJECT_SOURCE_DIR}/src/world.cpp"
-    "${PROJECT_SOURCE_DIR}/src/world.hpp"
 )
 
 # grouping

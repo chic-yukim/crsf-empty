@@ -2,17 +2,27 @@
 
 #include <crsf/CRAPI/TDynamicModuleInterface.h>
 
-class World;
+namespace rpcore {
+class RenderPipeline;
+}
 
-class EmptyModule : public crsf::TDynamicModuleInterface
+namespace crsf {
+class TGraphicRenderEngine;
+}
+
+class EmptyProject : public crsf::TDynamicModuleInterface
 {
 public:
-    EmptyModule();
+    EmptyProject();
 
     void OnLoad() override;
     void OnStart() override;
     void OnExit() override;
 
 private:
-    std::unique_ptr<World> world_;
+    void setup_scene();
+    void update();
+
+    crsf::TGraphicRenderEngine* rendering_engine_;
+    rpcore::RenderPipeline* pipeline_;
 };

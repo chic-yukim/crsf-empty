@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.11)
 
 set(CRMODULE_ID "empty_project")
 project(crmodule_${CRMODULE_ID}
