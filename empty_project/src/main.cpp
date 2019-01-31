@@ -48,6 +48,8 @@ void MainApp::OnExit()
 {
     remove_all_tasks();
     ignore_all();
+
+    main_gui_.reset();
 }
 
 void MainApp::setup_application()
