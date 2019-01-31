@@ -23,3 +23,13 @@ void EmptyModule::OnExit()
 {
     m_logger->trace("Module ({}) is exiting.", GetModuleInfo().name);
 }
+
+int EmptyModule::get_data() const
+{
+    return data_;
+}
+
+void EmptyModule::set_data(int data)
+{
+    data_ = data;
+}

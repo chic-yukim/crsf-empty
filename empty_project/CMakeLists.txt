@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.12)
 
 set(CRMODULE_ID "empty_project")
 project(crmodule_${CRMODULE_ID}
@@ -21,6 +21,12 @@ set(CRMODULE_INSTALL_DIR "${CRMODULE_ID}")
 
 # === project specific packages ===
 include(FindPackages)
+
+find_package(imgui CONFIG REQUIRED)
+set_target_properties(imgui::imgui PROPERTIES MAP_IMPORTED_CONFIG_RELWITHDEBINFO RELEASE)
+
+# Find CRSF modules
+#CRSeedLib_FIND_MODULES("empty_module")
 # ==================================================================================================
 
 # === target =======================================================================================
@@ -52,7 +58,10 @@ target_include_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE $<$<NOT:$<BOOL:${Boost_USE_STATIC_LIBS}>>:Boost::dynamic_linking>
-    CRSeedLib fmt::fmt-header-only spdlog::spdlog
+    CRSeedLib fmt::fmt-header-only spdlog::spdlog imgui::imgui
+
+    # link CRSF modules
+    #crmodule::empty_module
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

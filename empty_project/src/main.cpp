@@ -5,21 +5,27 @@
 
 #include <crsf/RenderingEngine/TGraphicRenderEngine.h>
 
-CRSEEDLIB_MODULE_CREATOR(EmptyProject);
+#include "main_gui/main_gui.hpp"
+
+CRSEEDLIB_MODULE_CREATOR(MainApp);
 
 // ************************************************************************************************
-EmptyProject::EmptyProject(): crsf::TDynamicModuleInterface(CRMODULE_ID_STRING)
+MainApp::MainApp(): crsf::TDynamicModuleInterface(CRMODULE_ID_STRING)
 {
     rendering_engine_ = crsf::TGraphicRenderEngine::GetInstance();
     pipeline_ = rendering_engine_->GetRenderPipeline();
 }
 
-void EmptyProject::OnLoad()
+MainApp::~MainApp()
+{
+}
+
+void MainApp::OnLoad()
 {
     rendering_engine_->SetWindowTitle(CRMODULE_ID_STRING);
 }
 
-void EmptyProject::OnStart()
+void MainApp::OnStart()
 {
     // setup (mouse) controller
     rendering_engine_->EnableControl();
@@ -28,22 +34,26 @@ void EmptyProject::OnStart()
         LVecBase3(0, 0, 0));
     rendering_engine_->ResetControllerInitial();
 
-    setup_scene();
+    setup_application();
 
-    pipeline_->get_showbase()->add_task([this](const rppanda::FunctionalTask* task) {
-        update();
+    main_gui_ = std::make_unique<MainGUI>(*this);
+
+    add_task([this](const rppanda::FunctionalTask* task) {
+        update_per_frame();
         return AsyncTask::DoneStatus::DS_cont;
-    }, "EmptyProject::update");
+    }, "MainApp::update_per_frame");
 }
 
-void EmptyProject::OnExit()
+void MainApp::OnExit()
+{
+    remove_all_tasks();
+    ignore_all();
+}
+
+void MainApp::setup_application()
 {
 }
 
-void EmptyProject::setup_scene()
-{
-}
-
-void EmptyProject::update()
+void MainApp::update_per_frame()
 {
 }
