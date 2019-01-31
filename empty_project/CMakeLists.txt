@@ -31,7 +31,7 @@ set_target_properties(imgui::imgui PROPERTIES MAP_IMPORTED_CONFIG_RELWITHDEBINFO
 
 # === target =======================================================================================
 include("${PROJECT_SOURCE_DIR}/files.cmake")
-add_library(${PROJECT_NAME} MODULE ${module_sources} ${module_headers})
+add_library(${PROJECT_NAME} MODULE ${module_sources})
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /MP /wd4251
