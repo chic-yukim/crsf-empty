@@ -31,7 +31,7 @@ void MainApp::OnStart()
     rendering_engine_->EnableControl();
     rendering_engine_->SetControllerInitialPosHpr(
         LVecBase3(0, 0, 0),
-        LVecBase3(0, 0, 0));
+        LVecBase3f(0, 0, 0));
     rendering_engine_->ResetControllerInitial();
 
     setup_application();
